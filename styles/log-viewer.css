@@ -1,0 +1,155 @@
+/* Log Viewer Container */
+#openwrt-log-viewer {
+  margin: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.log-viewer-header {
+  margin-bottom: 20px;
+}
+
+.log-viewer-header h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+/* Controls */
+.log-controls {
+  display: flex;
+  gap: 15px;
+  align-items: start;
+  flex-wrap: wrap;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.control-group label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+}
+
+.log-controls button,
+.log-controls select,
+.log-controls input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.log-controls button {
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.log-controls button:hover {
+  background: #0056b3;
+}
+
+/* Log Entries */
+.log-container {
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.log-entry {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-family: monospace;
+  display: flex;
+  gap: 10px;
+  align-items: start;
+}
+
+.log-entry:last-child {
+  border-bottom: none;
+}
+
+.log-timestamp {
+  color: #666;
+  min-width: 150px;
+}
+
+.log-level {
+  min-width: 80px;
+  font-weight: bold;
+}
+
+.log-level[data-level="error"] {
+  color: #dc3545;
+}
+
+.log-level[data-level="warning"] {
+  color: #ffc107;
+}
+
+.log-level[data-level="notice"] {
+  color: #17a2b8;
+}
+
+.log-component {
+  min-width: 100px;
+  color: #6c757d;
+}
+
+.log-message {
+  flex: 1;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Loading State */
+.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Error Display */
+.log-error {
+  padding: 20px;
+  text-align: center;
+  color: #dc3545;
+}
+
+.error-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .log-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .log-entry {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .log-timestamp,
+  .log-level,
+  .log-component {
+    min-width: auto;
+  }
+}
